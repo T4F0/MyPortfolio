@@ -2,23 +2,23 @@ import { useState } from 'react'
 import AppIcon from './AppIcon.jsx'
 
 const desktopLinks = [
-  { label: 'Home', href: '/#hero' },
-  { label: 'Work', href: '/#work' },
-  { label: 'About', href: '/#about' },
-  { label: 'Security', href: '/#security' },
-  { label: 'Leadership', href: '/#leadership' },
-  { label: 'Articles', href: '/#articles' },
+  { label: 'Home', href: '#hero' },
+  { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
+  { label: 'Security', href: '#security' },
+  { label: 'Leadership', href: '#leadership' },
+  { label: 'Articles', href: '#articles' },
 ]
 
 const mobileLinks = [
-  { label: 'Home', href: '/#hero' },
-  { label: 'Work', href: '/#work' },
-  { label: 'Services', href: '/#services' },
-  { label: 'About', href: '/#about' },
-  { label: 'Security', href: '/#security' },
-  { label: 'Leadership', href: '/#leadership' },
-  { label: 'Articles', href: '/#articles' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Home', href: '#hero' },
+  { label: 'Work', href: '#work' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Security', href: '#security' },
+  { label: 'Leadership', href: '#leadership' },
+  { label: 'Articles', href: '#articles' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Nav() {
@@ -27,7 +27,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <a className="nav-logo" href="/">
+        <a className="nav-logo" href="#hero">
           SA
         </a>
         <div className="nav-links">
@@ -37,7 +37,7 @@ export default function Nav() {
             </a>
           ))}
         </div>
-        <a className="nav-pill" href="/#contact">
+        <a className="nav-pill" href="#contact">
           Contact
         </a>
         <button

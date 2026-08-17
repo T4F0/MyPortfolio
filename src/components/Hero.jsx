@@ -17,10 +17,10 @@ export default function Hero() {
           and real-world problem solving.
         </p>
         <div className="hero-actions">
-          <a className="btn btn--primary" href="/#contact">
+          <a className="btn btn--primary" href="#contact">
             View My Work
           </a>
-          <a className="btn btn--outline" href="/#work">
+          <a className="btn btn--outline" href="#work">
             Start a Project
           </a>
         </div>
@@ -38,7 +38,7 @@ export default function Hero() {
           >
             <AppIcon name="linkedinLogo" size={20} />
           </a>
-          <a className="hero-social" href="/" aria-label="Resume">
+          <a className="hero-social" href="#" aria-label="Resume">
             <AppIcon name="fileText" size={20} />
           </a>
         </div>

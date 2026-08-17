@@ -12,7 +12,7 @@ export default function Articles() {
         <div className="articles-grid">
           {articles.map((article, i) => (
             <Reveal key={article.title} delay={i * 0.06}>
-              <a className="article-card" href="/#articles">
+              <a className="article-card" href="#articles">
                 <span className="article-category">{article.category}</span>
                 <h3 className="article-title">{article.title}</h3>
                 <div className="article-meta">

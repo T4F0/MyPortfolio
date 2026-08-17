@@ -74,8 +74,8 @@ export const featuredProjects = [
     image: "ercp.jpeg",
     reverse: false,
     links: [
-      { label: "Live Demo", href: "/#work" },
-      { label: "Case Study", href: "/#work" },
+      { label: "Live Demo", href: "#work" },
+      { label: "Case Study", href: "#work" },
     ],
   },
   {
@@ -100,8 +100,8 @@ export const featuredProjects = [
     image: "form-builder.jpg",
     reverse: true,
     links: [
-      { label: "Live Demo", href: "/#work" },
-      { label: "Case Study", href: "/#work" },
+      { label: "Live Demo", href: "#work" },
+      { label: "Case Study", href: "#work" },
     ],
   },
 
@@ -124,8 +124,8 @@ export const featuredProjects = [
         href: "https://www.figma.com/design/VSmcGCgY0ZXPjT6OeVlysT/Mu7ami-App",
         external: true,
       },
-      { label: "Live Demo", href: "/#work" },
-      { label: "Case Study", href: "/#work" },
+      { label: "Live Demo", href: "#work" },
+      { label: "Case Study", href: "#work" },
     ],
   },
   {
@@ -148,8 +148,8 @@ export const featuredProjects = [
         href: "https://www.notion.so/My-Portfolio-35535ab5c06c804aaa93e04ede331838",
         external: true,
       },
-      { label: "Live Demo", href: "/#work" },
-      { label: "Case Study", href: "/#work" },
+      { label: "Live Demo", href: "#work" },
+      { label: "Case Study", href: "#work" },
     ],
   },
   {
@@ -167,8 +167,8 @@ export const featuredProjects = [
     image: "freely.png",
     reverse: false,
     links: [
-      { label: "Live Demo", href: "/#work" },
-      { label: "Case Study", href: "/#work" },
+      { label: "Live Demo", href: "#work" },
+      { label: "Case Study", href: "#work" },
     ],
   },
 ];
@@ -194,7 +194,7 @@ export const workGridProjects = [
       "PostgreSQL",
       "Deploy & Ship",
     ],
-    links: [{ label: "Start a Project", href: "/#contact", primary: true }],
+    links: [{ label: "Start a Project", href: "#contact", primary: true }],
   },
 ];
 
