@@ -16,7 +16,7 @@ export default function Reveal({ children, delay = 0, className = '', style, as:
           }
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0, rootMargin: '0px 0px -15% 0px' }
     )
     observer.observe(node)
     return () => observer.disconnect()

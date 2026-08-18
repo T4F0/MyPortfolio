@@ -74,8 +74,8 @@ export const featuredProjects = [
     image: "ercp.jpeg",
     reverse: false,
     links: [
-      { label: "Live Demo", href: "#work" },
-      { label: "Case Study", href: "#work" },
+      // { label: "Live Demo", href: "#work" },
+      // { label: "Case Study", href: "#work" },
     ],
   },
   {
@@ -100,8 +100,12 @@ export const featuredProjects = [
     image: "form-builder.jpg",
     reverse: true,
     links: [
-      { label: "Live Demo", href: "#work" },
-      { label: "Case Study", href: "#work" },
+      {
+        label: "Repo",
+        href: "https://github.com/T4F0/Dynamic-Form-Builder",
+        external: true,
+      },
+      // { label: "Case Study", href: "#work" },
     ],
   },
 
@@ -124,8 +128,8 @@ export const featuredProjects = [
         href: "https://www.figma.com/design/VSmcGCgY0ZXPjT6OeVlysT/Mu7ami-App",
         external: true,
       },
-      { label: "Live Demo", href: "#work" },
-      { label: "Case Study", href: "#work" },
+      // { label: "Live Demo", href: "#work" },
+      // { label: "Case Study", href: "#work" },
     ],
   },
   {
@@ -145,11 +149,11 @@ export const featuredProjects = [
     links: [
       {
         label: "Design",
-        href: "https://www.notion.so/My-Portfolio-35535ab5c06c804aaa93e04ede331838",
+        href: "https://www.figma.com/design/mlZInFvcFsKoYTNEZCuQa7/Nafass-Design?node-id=0-1&t=Ux5nG8aRbxY61kNl-1",
         external: true,
       },
-      { label: "Live Demo", href: "#work" },
-      { label: "Case Study", href: "#work" },
+      // { label: "Live Demo", href: "#work" },
+      // { label: "Case Study", href: "#work" },
     ],
   },
   {
@@ -167,8 +171,17 @@ export const featuredProjects = [
     image: "freely.png",
     reverse: false,
     links: [
-      { label: "Live Demo", href: "#work" },
-      { label: "Case Study", href: "#work" },
+      {
+        label: "Design",
+        href: "https://www.figma.com/design/lMOey4GEvWYOruKADk4jUN/Freelancing-platform-prototypes?node-id=0-1&t=74KFuNdaB8SWSiZW-1",
+        external: true,
+      },
+      {
+        label: "Live Demo",
+        href: "https://drive.google.com/file/d/1z2F2Pw7_4iSpAIlBQtJZn0h4H-tAF2ud/view?usp=sharing",
+        external: true,
+      },
+      // { label: "Case Study", href: "#work" },
     ],
   },
 ];
@@ -202,15 +215,15 @@ export const securityItems = [
   { icon: "network", label: "Network Security" },
   { icon: "shieldCheck", label: "Web Security" },
   { icon: "bug", label: "Penetration Testing" },
+  { icon: "arrowCircleUpRight", label: "Reverse Engineering" },
   { icon: "linux", label: "Linux" },
   { icon: "terminal", label: "Nmap" },
   { icon: "bugBeetle", label: "Burp Suite" },
   { icon: "code", label: "Ghidra" },
-  { icon: "trophy", label: "CTFs" },
-  { icon: "cpu", label: "Hack The Box" },
-  { icon: "arrowCircleUpRight", label: "Reverse Engineering" },
   { icon: "database", label: "Enumeration" },
   { icon: "fingerprint", label: "Privilege Escalation" },
+  { icon: "trophy", label: "CTFs" },
+  { icon: "cpu", label: "Hack The Box" },
 ];
 
 export const skills = [
@@ -220,7 +233,7 @@ export const skills = [
   },
   {
     title: "Backend",
-    text: "Python · Django · DRF · Node.js · Express.js · Java",
+    text: "Python · Django · DRF · Node.js · Express.js",
   },
   {
     title: "Databases",
@@ -228,11 +241,11 @@ export const skills = [
   },
   {
     title: "APIs & Architecture",
-    text: "REST APIs · JWT · Swagger/OpenAPI · Authentication",
+    text: "REST APIs · JWT · Swagger/OpenAPI",
   },
   {
     title: "DevOps & Infrastructure",
-    text: "Docker · Docker Compose · Linux · Git · Kubernetes · Jenkins · CI/CD",
+    text: "Docker · Linux · Git · Kubernetes · Jenkins · CI/CD",
   },
   {
     title: "Cybersecurity",
@@ -253,7 +266,6 @@ export const aboutParagraphs = [
   "I started with software development — building interfaces, APIs, and full products. Over time I became curious about what actually happens underneath: operating systems, networks, and the security assumptions most applications quietly rely on.",
   "That curiosity turned into a deliberate path: Software Engineering → Full-Stack Development → Networking → Cybersecurity → AI. Each step reshaped how I build — with more attention to reliability, edge cases, and how systems fail.",
   "I’m currently studying Computer Science with a focus on Cybersecurity, and I spend most of my time outside class building real projects, competing in CTFs, and going deeper into how secure systems are actually designed.",
-  "Alongside my studies, I’ve spent 3+ years building web applications for real clients, learning to turn ideas and requirements into working products.",
   "Alongside my studies, I’ve spent 3+ years building web applications for real clients, learning to turn ideas and requirements into working products.",
 ];
 

@@ -4,18 +4,18 @@ import AppIcon from './AppIcon.jsx'
 const desktopLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
   { label: 'Security', href: '#security' },
+  { label: 'About', href: '#about' },
   { label: 'Leadership', href: '#leadership' },
   { label: 'Articles', href: '#articles' },
 ]
 
 const mobileLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
+  { label: 'Work', href: '#work' },
   { label: 'Security', href: '#security' },
+  { label: 'About', href: '#about' },
   { label: 'Leadership', href: '#leadership' },
   { label: 'Articles', href: '#articles' },
   { label: 'Contact', href: '#contact' },
