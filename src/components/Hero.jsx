@@ -1,27 +1,29 @@
 import AppIcon from './AppIcon.jsx'
+import { useLanguage } from '../useLanguage.jsx'
+import { uiStrings } from '../data.js'
 
 export default function Hero() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang].hero
+
   return (
     <section className="hero" id="hero">
       <div className="hero-grid-overlay" />
       <div className="hero-content">
         <div className="hero-badge">
           <span className="hero-badge-dot" />
-          <span className="hero-badge-text">Available for freelance projects</span>
+          <span className="hero-badge-text">{t.badge}</span>
         </div>
         <h1 className="display-heading">Selloum Abdelmoncef</h1>
-        <p className="hero-subtitle">Full-Stack Developer &amp; Cybersecurity Enthusiast</p>
-        <p className="hero-tags">Full-Stack Engineering · Cybersecurity · AI · Technical Leadership</p>
-        <p className="hero-description">
-          I build modern, scalable web applications with a strong focus on performance, security,
-          and real-world problem solving.
-        </p>
+        <p className="hero-subtitle">{t.subtitle}</p>
+        <p className="hero-tags">{t.tags}</p>
+        <p className="hero-description">{t.description}</p>
         <div className="hero-actions">
           <a className="btn btn--primary" href="#contact">
-            View My Work
+            {t.viewWork}
           </a>
           <a className="btn btn--outline" href="#work">
-            Start a Project
+            {t.startProject}
           </a>
         </div>
         <div className="hero-socials">

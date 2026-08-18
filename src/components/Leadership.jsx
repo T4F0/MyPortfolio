@@ -1,6 +1,8 @@
 import AppIcon from './AppIcon.jsx'
 import Reveal from './Reveal.jsx'
-import { getProjectImage } from '../data.js'
+import { getProjectImage, frenchData } from '../data.js'
+import { useLanguage } from '../useLanguage.jsx'
+import { uiStrings } from '../data.js'
 import {
   leadershipChips,
   journeyEvents,
@@ -11,7 +13,11 @@ import {
   leadershipInAction,
 } from '../data.js'
 
+const fr = frenchData
+
 function EventCard({ badge, eyebrow, title, description, media, image, children, goldBorder, eyebrowTone }) {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
   const img = getProjectImage(image)
   return (
     <article className={`event-card ${goldBorder ? 'event-card--gold-border' : ''}`}>
@@ -22,7 +28,7 @@ function EventCard({ badge, eyebrow, title, description, media, image, children,
           <>
             <AppIcon name={media === 'indigo' ? 'rocketLaunch' : media === 'teal' ? 'shieldWarning' : 'sparkle'} size={72} className="icon-accent" />
             <span className="media-placeholder media-placeholder--absolute">
-              Event photography — placeholder
+              {t.leadership.eventPhotoPlaceholder}
             </span>
           </>
         )}
@@ -52,31 +58,43 @@ function StatsRow({ stats }) {
 }
 
 export default function Leadership() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
+  const isFr = lang === 'fr'
+
+  const chips = isFr ? fr.leadershipChips : leadershipChips
+  const events = isFr ? fr.journeyEvents : journeyEvents
+  const kData = isFr ? fr.kodikos : kodikos
+  const iData = isFr ? fr.ingehack : ingehack
+  const ingData = isFr ? fr.ingeneer : ingeneer
+  const eData = isFr ? fr.ecsel : ecsel
+  const actionData = isFr ? fr.leadershipInAction : leadershipInAction
+
+  const communityChip = isFr ? 'Construction Communautaire' : 'Community Building'
+
   return (
     <section className="section section--panel" id="leadership">
       <Reveal className="container leadership-stack">
         <div className="leadership-header">
           <div className="leadership-header-left">
-            <p className="eyebrow">Leadership &amp; Events</p>
+            <p className="eyebrow">{t.leadership.eyebrow}</p>
             <h2 className="leadership-heading">
-              Leading technology, cybersecurity, and innovation communities.
+              {t.leadership.heading}
             </h2>
             <span className="leadership-badge">
               <AppIcon name="crownSimple" size={15} />
-              <span className="leadership-badge-text">President — Ingeniums Club · 2025/26</span>
+              <span className="leadership-badge-text">{t.leadership.badge}</span>
             </span>
           </div>
           <div className="leadership-header-right">
             <p className="leadership-intro">
-              I lead a multidisciplinary student technology community, bringing together developers,
-              security enthusiasts, and creatives around shared technical projects. My role spans the
-              full lifecycle of large-scale events — from early strategy to on-the-ground execution.
+              {t.leadership.intro}
             </p>
             <div className="leadership-chips">
-              {leadershipChips.map((chip) => (
+              {chips.map((chip) => (
                 <span
                   key={chip}
-                  className={`chip chip--outlined ${chip === 'Community Building' ? 'chip--active' : ''}`}
+                  className={`chip chip--outlined ${chip === communityChip ? 'chip--active' : ''}`}
                 >
                   {chip}
                 </span>
@@ -96,7 +114,7 @@ export default function Leadership() {
             <span className="journey-dot journey-dot--muted" />
           </div>
           <div className="journey-entries">
-            {journeyEvents.map((event) => (
+            {events.map((event) => (
               <div key={event.title} className="journey-entry">
                 <span className={`journey-title journey-title--${event.tone}`}>{event.title}</span>
                 <span className="journey-subtitle">{event.subtitle}</span>
@@ -107,74 +125,74 @@ export default function Leadership() {
 
         <Reveal delay={0.05}>
           <EventCard
-            badge={kodikos.badge}
-            eyebrow={kodikos.eyebrow}
-            title={kodikos.title}
-            description={kodikos.description}
+            badge={kData.badge}
+            eyebrow={kData.eyebrow}
+            title={kData.title}
+            description={kData.description}
             media="indigo"
-            image={kodikos.image}
+            image={kData.image}
             eyebrowTone="default"
           >
             <div className="leadership-chips">
-              {kodikos.chips.map((chip) => (
+              {kData.chips.map((chip) => (
                 <span key={chip} className="chip">
                   {chip}
                 </span>
               ))}
             </div>
-            <StatsRow stats={kodikos.stats} />
+            <StatsRow stats={kData.stats} />
           </EventCard>
         </Reveal>
 
         <Reveal delay={0.05}>
           <EventCard
-            badge={ingehack.badge}
-            eyebrow={ingehack.eyebrow}
-            title={ingehack.title}
-            description={ingehack.description}
+            badge={iData.badge}
+            eyebrow={iData.eyebrow}
+            title={iData.title}
+            description={iData.description}
             media="teal"
-            image={ingehack.image}
+            image={iData.image}
             eyebrowTone="teal"
           >
             <div className="leadership-chips chips--teal">
-              {ingehack.chips.map((chip) => (
+              {iData.chips.map((chip) => (
                 <span key={chip} className="chip">
                   {chip}
                 </span>
               ))}
             </div>
             <div className="leadership-chips">
-              {ingehack.neutralChips.map((chip) => (
+              {iData.neutralChips.map((chip) => (
                 <span key={chip} className="chip">
                   {chip}
                 </span>
               ))}
             </div>
-            <StatsRow stats={ingehack.stats} />
+            <StatsRow stats={iData.stats} />
           </EventCard>
         </Reveal>
 
         <Reveal delay={0.05}>
           <article className="event-card event-card--gold-border">
             <div className="event-media event-media--gold">
-              {getProjectImage(ingeneer.image) ? (
-                <img src={getProjectImage(ingeneer.image)} alt={`${ingeneer.title} photography`} />
+              {getProjectImage(ingData.image) ? (
+                <img src={getProjectImage(ingData.image)} alt={`${ingData.title} photography`} />
               ) : (
                 <>
                   <span className="media-placeholder media-placeholder--absolute">
-                    Event photography — placeholder
+                    {t.leadership.eventPhotoPlaceholder}
                   </span>
                   <AppIcon name="sparkle" size={72} className="icon-accent" />
                 </>
               )}
             </div>
             <div className="event-body event-body--wide-gap">
-              <span className="event-badge">{ingeneer.badge}</span>
-              <p className="event-eyebrow event-eyebrow--gold">{ingeneer.eyebrow}</p>
-              <h3 className="event-title">{ingeneer.title}</h3>
-              <p className="event-desc event-desc--tall">{ingeneer.description}</p>
+              <span className="event-badge">{ingData.badge}</span>
+              <p className="event-eyebrow event-eyebrow--gold">{ingData.eyebrow}</p>
+              <h3 className="event-title">{ingData.title}</h3>
+              <p className="event-desc event-desc--tall">{ingData.description}</p>
               <div className="disciplines-grid">
-                {ingeneer.disciplines.map((discipline) => (
+                {ingData.disciplines.map((discipline) => (
                   <div
                     key={discipline.title}
                     className={`discipline-card discipline-card--${discipline.tone}`}
@@ -187,19 +205,18 @@ export default function Leadership() {
               </div>
               <div className="quote-box">
                 <p className="quote-text">
-                  “How well can you adapt when the problem doesn’t fit into a single discipline?”
+                  {t.leadership.quote}
                 </p>
                 <p className="quote-sub">
-                  Ingeneer is designed to test adaptability, creativity, and technical reasoning — an
-                  immersive technical adventure rather than a standard competition.
+                  {t.leadership.quoteSub}
                 </p>
               </div>
               <span className="role-pill">
                 <AppIcon name="crownSimple" size={15} />
-                Event Leader &amp; Organizer
+                {t.leadership.eventLeader}
               </span>
               <div className="leadership-chips">
-                {ingeneer.chips.map((chip) => (
+                {ingData.chips.map((chip) => (
                   <span key={chip} className="chip">
                     {chip}
                   </span>
@@ -211,13 +228,13 @@ export default function Leadership() {
 
         <Reveal delay={0.05}>
           <article className="ecsel-card">
-            <span className="event-badge event-badge--accent">{ecsel.badge}</span>
-            <p className="event-eyebrow event-eyebrow--accent-soft">{ecsel.eyebrow}</p>
-            <h3 className="event-title">{ecsel.title}</h3>
-            <p className="ecsel-sub">{ecsel.subtitle}</p>
-            <p className="ecsel-desc">{ecsel.description}</p>
+            <span className="event-badge event-badge--accent">{eData.badge}</span>
+            <p className="event-eyebrow event-eyebrow--accent-soft">{eData.eyebrow}</p>
+            <h3 className="event-title">{eData.title}</h3>
+            <p className="ecsel-sub">{eData.subtitle}</p>
+            <p className="ecsel-desc">{eData.description}</p>
             <div className="ecsel-photos">
-              {ecsel.photos.map((photo) => {
+              {eData.photos.map((photo) => {
                 const photoImg = getProjectImage(photo.image)
                 return (
                   <div
@@ -240,13 +257,13 @@ export default function Leadership() {
             </div>
             <div className="ecsel-note">
               <AppIcon name="info" size={13} />
-              Photo placeholders — ready for real ECSEL Expo photography
+              {t.leadership.photoNote}
             </div>
             <div className="ecsel-role">
-              <h4 className="ecsel-role-title">My Role</h4>
-              <p className="ecsel-role-name">Ingeniums Club Representative</p>
+              <h4 className="ecsel-role-title">{t.leadership.myRole}</h4>
+              <p className="ecsel-role-name">{t.leadership.clubRep}</p>
               <div className="leadership-chips">
-                {ecsel.roleChips.map((chip) => (
+                {eData.roleChips.map((chip) => (
                   <span key={chip} className="chip">
                     {chip}
                   </span>
@@ -254,16 +271,15 @@ export default function Leadership() {
               </div>
             </div>
             <p className="ecsel-quote">
-              Leadership isn’t only about organizing events — it’s also about representing a
-              community, communicating its vision, and building relationships beyond it.
+              {t.leadership.communityQuote}
             </p>
           </article>
         </Reveal>
 
         <Reveal delay={0.05} className="leadership-in-action">
-          <h3 className="leadership-in-action-title">Leadership in Action</h3>
+          <h3 className="leadership-in-action-title">{t.leadership.inAction}</h3>
           <div className="action-cards">
-            {leadershipInAction.map((action) => (
+            {actionData.map((action) => (
               <div key={action.label} className={`action-card action-card--${action.tone}`}>
                 <span className="action-label">{action.label}</span>
                 <span className="action-title">{action.title}</span>
@@ -272,9 +288,7 @@ export default function Leadership() {
             ))}
           </div>
           <p className="leadership-quote">
-            Through these events, I learned that successful technical projects are not only about
-            technology. They require vision, planning, people, coordination, execution, and the
-            ability to adapt.
+            {t.leadership.closingQuote}
           </p>
         </Reveal>
       </Reveal>

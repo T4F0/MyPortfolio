@@ -1,3 +1,4 @@
+import { LanguageProvider } from './useLanguage.jsx'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import Positioning from './components/Positioning.jsx'
@@ -9,14 +10,13 @@ import About from './components/About.jsx'
 import Experience from './components/Experience.jsx'
 import Leadership from './components/Leadership.jsx'
 import Articles from './components/Articles.jsx'
-// import GithubActivity from './components/GithubActivity.jsx'
 import HowIWork from './components/HowIWork.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
-    <div>
+    <LanguageProvider>
       <Nav />
       <main>
         <Hero />
@@ -29,11 +29,10 @@ export default function App() {
         <Experience />
         <Leadership />
         <Articles />
-        {/* <GithubActivity /> */}
         <HowIWork />
         <Contact />
       </main>
       <Footer />
-    </div>
+    </LanguageProvider>
   )
 }

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import AppIcon from './AppIcon.jsx'
 import Reveal from './Reveal.jsx'
-import { services } from '../data.js'
+import { services, frenchData } from '../data.js'
+import { useLanguage } from '../useLanguage.jsx'
+import { uiStrings } from '../data.js'
 
 function Accordion({ item, open, onToggle }) {
   return (
@@ -27,7 +29,10 @@ function Accordion({ item, open, onToggle }) {
 }
 
 export default function Services() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
   const [openSet, setOpenSet] = useState(() => new Set())
+  const data = lang === 'fr' ? frenchData.services : services
 
   const toggle = (i) => {
     setOpenSet((prev) => {
@@ -45,11 +50,11 @@ export default function Services() {
     <section className="section" id="services">
       <Reveal className="container" style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
         <div className="section-head">
-          <p className="eyebrow">What I Can Build</p>
-          <h2 className="section-heading">Services built around your product, not a template</h2>
+          <p className="eyebrow">{t.services.eyebrow}</p>
+          <h2 className="section-heading">{t.services.heading}</h2>
         </div>
         <div className="services-grid">
-          {services.map((item, i) => (
+          {data.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.06}>
               <Accordion
                 item={item}

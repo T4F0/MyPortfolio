@@ -1,6 +1,8 @@
 import AppIcon from './AppIcon.jsx'
 import Reveal from './Reveal.jsx'
-import { featuredProjects, workGridProjects, getProjectImage } from '../data.js'
+import { featuredProjects, workGridProjects, getProjectImage, frenchData } from '../data.js'
+import { useLanguage } from '../useLanguage.jsx'
+import { uiStrings } from '../data.js'
 
 function ProjectLinks({ links }) {
   return (
@@ -111,18 +113,23 @@ function GridProject({ project }) {
 }
 
 export default function Work() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
+  const projects = lang === 'fr' ? frenchData.featuredProjects : featuredProjects
+  const gridProjects = lang === 'fr' ? frenchData.workGridProjects : workGridProjects
+
   return (
     <section className="section" id="work">
       <Reveal className="container work-stack">
         <div className="section-head">
-          <p className="eyebrow">Selected Work</p>
-          <h2 className="section-heading">Projects worth talking about</h2>
+          <p className="eyebrow">{t.work.eyebrow}</p>
+          <h2 className="section-heading">{t.work.heading}</h2>
         </div>
-        {featuredProjects.map((project, i) => (
+        {projects.map((project, i) => (
           <FeaturedProject key={project.title} project={project} reverse={i % 2 === 1} />
         ))}
         <div className="work-grid">
-          {workGridProjects.map((project, i) => (
+          {gridProjects.map((project, i) => (
             <Reveal key={project.title} delay={i * 0.06}>
               <GridProject project={project} />
             </Reveal>

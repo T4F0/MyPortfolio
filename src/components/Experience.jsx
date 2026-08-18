@@ -1,17 +1,23 @@
 import AppIcon from './AppIcon.jsx'
 import Reveal from './Reveal.jsx'
-import { experience } from '../data.js'
+import { experience, frenchData } from '../data.js'
+import { useLanguage } from '../useLanguage.jsx'
+import { uiStrings } from '../data.js'
 
 export default function Experience() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
+  const data = lang === 'fr' ? frenchData.experience : experience
+
   return (
     <section className="section">
       <Reveal className="container" style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
         <div className="section-head">
-          <p className="eyebrow">Experience &amp; Achievements</p>
-          <h2 className="section-heading">By the numbers</h2>
+          <p className="eyebrow">{t.experience.eyebrow}</p>
+          <h2 className="section-heading">{t.experience.heading}</h2>
         </div>
         <div className="experience-grid">
-          {experience.map((item, i) => (
+          {data.map((item, i) => (
             <Reveal
               key={item.number}
               delay={i * 0.06}

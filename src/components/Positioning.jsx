@@ -1,10 +1,13 @@
+import { useLanguage } from '../useLanguage.jsx'
+import { uiStrings } from '../data.js'
+
 export default function Positioning() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang].positioning
+
   return (
     <div className="positioning">
-      <p className="positioning-text">
-        I combine full-stack development with cybersecurity to build applications that are not only
-        functional, but reliable and secure.
-      </p>
+      <p className="positioning-text">{t}</p>
     </div>
   )
 }
