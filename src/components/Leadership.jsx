@@ -1,5 +1,6 @@
 import AppIcon from './AppIcon.jsx'
 import Reveal from './Reveal.jsx'
+import { getProjectImage } from '../data.js'
 import {
   leadershipChips,
   journeyEvents,
@@ -10,14 +11,21 @@ import {
   leadershipInAction,
 } from '../data.js'
 
-function EventCard({ badge, eyebrow, title, description, media, children, goldBorder, eyebrowTone }) {
+function EventCard({ badge, eyebrow, title, description, media, image, children, goldBorder, eyebrowTone }) {
+  const img = getProjectImage(image)
   return (
     <article className={`event-card ${goldBorder ? 'event-card--gold-border' : ''}`}>
       <div className={`event-media event-media--${media}`}>
-        <AppIcon name={media === 'indigo' ? 'rocketLaunch' : media === 'teal' ? 'shieldWarning' : 'sparkle'} size={72} className="icon-accent" />
-        <span className="media-placeholder media-placeholder--absolute">
-          Event photography — placeholder
-        </span>
+        {img ? (
+          <img src={img} alt={`${title} photography`} />
+        ) : (
+          <>
+            <AppIcon name={media === 'indigo' ? 'rocketLaunch' : media === 'teal' ? 'shieldWarning' : 'sparkle'} size={72} className="icon-accent" />
+            <span className="media-placeholder media-placeholder--absolute">
+              Event photography — placeholder
+            </span>
+          </>
+        )}
       </div>
       <div className="event-body">
         <span className="event-badge">{badge}</span>
@@ -104,6 +112,7 @@ export default function Leadership() {
             title={kodikos.title}
             description={kodikos.description}
             media="indigo"
+            image={kodikos.image}
             eyebrowTone="default"
           >
             <div className="leadership-chips">
@@ -124,6 +133,7 @@ export default function Leadership() {
             title={ingehack.title}
             description={ingehack.description}
             media="teal"
+            image={ingehack.image}
             eyebrowTone="teal"
           >
             <div className="leadership-chips chips--teal">
@@ -147,10 +157,16 @@ export default function Leadership() {
         <Reveal delay={0.05}>
           <article className="event-card event-card--gold-border">
             <div className="event-media event-media--gold">
-              <span className="media-placeholder media-placeholder--absolute">
-                Event photography — placeholder
-              </span>
-              <AppIcon name="sparkle" size={72} className="icon-accent" />
+              {getProjectImage(ingeneer.image) ? (
+                <img src={getProjectImage(ingeneer.image)} alt={`${ingeneer.title} photography`} />
+              ) : (
+                <>
+                  <span className="media-placeholder media-placeholder--absolute">
+                    Event photography — placeholder
+                  </span>
+                  <AppIcon name="sparkle" size={72} className="icon-accent" />
+                </>
+              )}
             </div>
             <div className="event-body event-body--wide-gap">
               <span className="event-badge">{ingeneer.badge}</span>
@@ -201,17 +217,26 @@ export default function Leadership() {
             <p className="ecsel-sub">{ecsel.subtitle}</p>
             <p className="ecsel-desc">{ecsel.description}</p>
             <div className="ecsel-photos">
-              {ecsel.photos.map((photo) => (
-                <div
-                  key={photo.label}
-                  className={`ecsel-photo ecsel-photo--${photo.tone} ${
-                    photo.full ? 'ecsel-photo--full' : 'ecsel-photo--half'
-                  }`}
-                >
-                  <AppIcon name="image" size={photo.iconSize} />
-                  <span className="media-placeholder media-placeholder--absolute">{photo.label}</span>
-                </div>
-              ))}
+              {ecsel.photos.map((photo) => {
+                const photoImg = getProjectImage(photo.image)
+                return (
+                  <div
+                    key={photo.label}
+                    className={`ecsel-photo ecsel-photo--${photo.tone} ${
+                      photo.full ? 'ecsel-photo--full' : 'ecsel-photo--half'
+                    }`}
+                  >
+                    {photoImg ? (
+                      <img src={photoImg} alt={photo.label} />
+                    ) : (
+                      <>
+                        <AppIcon name="image" size={photo.iconSize} />
+                        <span className="media-placeholder media-placeholder--absolute">{photo.label}</span>
+                      </>
+                    )}
+                  </div>
+                )
+              })}
             </div>
             <div className="ecsel-note">
               <AppIcon name="info" size={13} />

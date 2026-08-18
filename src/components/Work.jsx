@@ -19,7 +19,7 @@ function ProjectLinks({ links }) {
   )
 }
 
-function FeaturedProject({ project }) {
+function FeaturedProject({ project, reverse }) {
   const image = getProjectImage(project.image)
   const media = (
     <div className={`project-media project-media--${project.media}`}>
@@ -54,7 +54,7 @@ function FeaturedProject({ project }) {
   )
   return (
     <article className="project-featured">
-      {project.reverse ? (
+      {reverse ? (
         <>
           {content}
           {media}
@@ -118,8 +118,8 @@ export default function Work() {
           <p className="eyebrow">Selected Work</p>
           <h2 className="section-heading">Projects worth talking about</h2>
         </div>
-        {featuredProjects.map((project) => (
-          <FeaturedProject key={project.title} project={project} />
+        {featuredProjects.map((project, i) => (
+          <FeaturedProject key={project.title} project={project} reverse={i % 2 === 1} />
         ))}
         <div className="work-grid">
           {workGridProjects.map((project, i) => (

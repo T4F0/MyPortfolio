@@ -97,7 +97,7 @@ export const featuredProjects = [
     icon: "gridFour",
     media: "pink",
     placeholder: "Project screenshot — placeholder",
-    image: "form-builder.jpg",
+    image: "form-builder.webp",
     reverse: true,
     links: [
       {
@@ -144,7 +144,7 @@ export const featuredProjects = [
     icon: "heartbeat",
     media: "indigo",
     placeholder: "Project screenshot — placeholder",
-    image: "nafass.png",
+    image: "nafass.webp",
     reverse: false,
     links: [
       {
@@ -181,7 +181,11 @@ export const featuredProjects = [
         href: "https://drive.google.com/file/d/1z2F2Pw7_4iSpAIlBQtJZn0h4H-tAF2ud/view?usp=sharing",
         external: true,
       },
-      // { label: "Case Study", href: "#work" },
+      {
+        label: "Repo",
+        href: "https://github.com/T4F0/Freely-platform",
+        external: true
+      },
     ],
   },
 ];
@@ -195,7 +199,7 @@ export const workGridProjects = [
     icon: "rocketLaunch",
     media: "indigo",
     placeholder: "Ready for your next project",
-    image: "openwork.jpg",
+    image: "openwork.webp",
     cta: true,
     tech: [
       "React",
@@ -353,6 +357,8 @@ export const kodikos = {
     { value: "9+", label: "Universities" },
     { value: "36", label: "Hours" },
   ],
+  image: "kodikos.webp",
+
 };
 
 export const ingehack = {
@@ -382,6 +388,7 @@ export const ingehack = {
     { value: "60+", label: "Challenges" },
     { value: "35", label: "Organizers" },
   ],
+  image: "ingehack.jpg",
 };
 
 export const ingeneer = {
@@ -432,6 +439,7 @@ export const ingeneer = {
     "Cross-Disciplinary Coordination",
     "Logistics & Execution",
   ],
+  image: "ingeneer.jpg",
 };
 
 export const ecsel = {
@@ -448,24 +456,28 @@ export const ecsel = {
       label: "Representing Ingeniums at ECSEL Expo",
       full: true,
       tall: true,
+      image: "excel expo.webp",
     },
     {
       tone: "teal",
       iconSize: 40,
       label: "Connecting with the Algerian tech ecosystem",
       full: false,
+      image: "meeting wazir.jpg",
     },
     {
       tone: "gold",
       iconSize: 40,
       label: "Meeting entrepreneurs and technology professionals",
       full: false,
+      image: "representing ingeniums (1).jpg",
     },
     {
       tone: "purple",
       iconSize: 48,
       label: "Ingeniums Club at ECSEL Expo",
       full: true,
+      image: "ingeniums club.jpg",
     },
   ],
   roleChips: [
