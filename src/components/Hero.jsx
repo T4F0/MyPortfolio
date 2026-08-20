@@ -1,6 +1,7 @@
 import AppIcon from './AppIcon.jsx'
 import { useLanguage } from '../useLanguage.jsx'
 import { uiStrings } from '../data.js'
+import cvFile from '../assets/SELLOUM ABDELMONCEF CV.pdf'
 
 export default function Hero() {
   const { lang } = useLanguage()
@@ -40,7 +41,7 @@ export default function Hero() {
           >
             <AppIcon name="linkedinLogo" size={20} />
           </a>
-          <a className="hero-social" href="#" aria-label="Resume">
+          <a className="hero-social" href={cvFile} download aria-label="Resume">
             <AppIcon name="fileText" size={20} />
           </a>
         </div>

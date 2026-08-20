@@ -2,6 +2,7 @@ import AppIcon from './AppIcon.jsx'
 import Reveal from './Reveal.jsx'
 import { useLanguage } from '../useLanguage.jsx'
 import { uiStrings } from '../data.js'
+import cvFile from '../assets/SELLOUM ABDELMONCEF CV.pdf'
 
 export default function Contact() {
   const { lang } = useLanguage()
@@ -33,7 +34,7 @@ export default function Contact() {
             <AppIcon name="linkedinLogo" size={16} />
             {t.linkedin}
           </a>
-          <a className="contact-link" href="https://example.com/cv.pdf">
+          <a className="contact-link" href={cvFile} download>
             <AppIcon name="downloadSimple" size={16} />
             {t.downloadCV}
           </a>
